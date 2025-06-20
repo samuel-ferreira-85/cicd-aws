@@ -1,0 +1,9 @@
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return x + 1  # erro na rota principal - força falha (variável inexistente)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')

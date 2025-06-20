@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo Instalando dependências
+      - pip install -r requirements.txt --target .
+  build:
+    commands:
+      - echo Corrigindo permissões do script
+      - sed -i 's/\r$//' scripts/start_server.sh
+      - chmod +x scripts/start_server.sh
+      - echo Build concluído com sucesso
+
+artifacts:
+  files:
+    - '**/*'
